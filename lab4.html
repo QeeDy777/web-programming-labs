@@ -24,7 +24,7 @@
             z-index: 1;
             left: 380px;
             top: 120px;
-            position: fixed;
+            position: absolute;
         }
         .second:hover{
             z-index: 3;
@@ -34,7 +34,7 @@
             left: 0;
             width: 300px;
             background: black;
-            height: 90%;
+            height: 100%;
             overflow-y: auto;
             overflow-x: hidden;
         }
@@ -46,6 +46,19 @@
         }
         main{
             margin-left: 320px;
+        }
+        .pic{
+            position: absolute;
+        }
+        .comics{
+            background-color: white;
+            border-radius: 50%;
+            text-align: middle; 
+            z-index: -1;
+            box-shadow: 2.5px 1.5px 2px gray;
+        }
+        .pic:hover{
+            z-index: -1
         }
     </style>
 </head>
@@ -103,6 +116,10 @@
             Что андеррайтеры называют красной селёдкой и чем они похожи на организаторов концерта Стаса Михайлова?
             Все эти тайны будут раскрыты.
         </div>
+        <img class="pic" src="https://cdn.shazoo.ru/c1400x625/570154_GMmAiFjHww_ixpccm1jz9t51.jpg"  width="900" height="100%">
+        <div class="comics" style="width: 20px; height: 20px; top: 237px; left: 215px;"></div>
+        <div class="comics" style="width: 20px; height: 20px; top: 150px; left: 242px;"></div>
+        <div class="comics" style="width: 200px; height: 40px; top: 13px; left: 215px; padding: 20px;"> Шо за тяги бархатные???</div>
     </main>
 
     <footer>
