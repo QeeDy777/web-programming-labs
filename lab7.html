@@ -90,6 +90,41 @@
                  newTable.appendChild(newTr)
              }
          }
+         function showCurs() {
+
+            let curs = [4416.00, 4529.50, 4518.00, 4470.50, 4519.50, 4614.00, 4605.50, 4578.50, 4619.00, 4631.00];
+            let date = ['08.05.2023', '10.05.2023', '11.05.2023', '12.05.2023', '15.05.2023', '16.05.2023', '17.05.2023', '18.05.2023',
+            '19.05.2023', '22.05.2023'];
+            let cursTable = document.getElementById('TableCurs');
+
+            for (let i = 0; i<curs.length; i++) {
+                let tr = document.createElement('tr');
+                let dateTd = document.createElement('td');
+                let cursTd = document.createElement('td');
+                let newTd = document.createElement('td');
+                dateTd.innerHTML = date[i];
+                cursTd.innerHTML = curs[i];
+                newTd.innerHTML = (curs[i] - curs[i-1]).toFixed(2);
+                tr.appendChild(dateTd);
+                tr.appendChild(cursTd);
+                tr.appendChild(newTd);
+                cursTable.appendChild(tr);
+            }
+
+            let sum = 0;
+            for (let i = 0; i<curs.length; i++) {
+                sum = sum + curs[i];
+            }
+            let average = sum / curs.length;
+            document.getElementById('middlenum').innerHTML = 'Среднее значение: ' + average;
+
+            let maxCurs = Math.max(...curs);
+            let minCurs = Math.min(...curs);
+            document.getElementById('max').innerHTML = 'Максимльное значение: ' + maxCurs;
+            document.getElementById('min').innerHTML = 'Минимальное значение: ' + minCurs;
+
+        }
+
     </script>
 </head>
 <body>
@@ -98,22 +133,31 @@
     </header>
 
     <main>
-        <button onclick="addBlocks()">Создать блоки</button>
-         <div id="blocks"></div>
-
-         <button onclick="showExchange()">Курс доллара</button>
-         <table border="1" id="dollar-exchange"></table>
-         <div id="detail"></div>
-         
-         <button onclick="addTransparentBlocks()">Создать полупрозрачные блоки</button>
-         <div id="transparent-blocks"></div>
-
-         <input id='inpNum' type='number' value='5' placeholder='введите число кругов'>
-         <button onclick="greenRed()">Красное/зеленое</button>
-         <div id="circles"></div>
-
-         <button id="currentTable" onclick="tableUmno()">Таблица умножения</button>
-         <table id="tableOfUmno"></table>
+        <div>
+            <button onclick="addBlocks()">Создать блоки</button>
+            <div id="blocks"></div>
+        </div>
+            <button onclick="showExchange()">Курс доллара</button>
+            <table border="1" id="dollar-exchange"></table>
+            <div id="detail"></div>
+        <div>   
+            <button onclick="addTransparentBlocks()">Создать полупрозрачные блоки</button>
+            <div id="transparent-blocks"></div>
+        </div>
+            <input id='inpNum' type='number' value='5' placeholder='введите число кругов'>
+            <button onclick="greenRed()">Красное/зеленое</button>
+            <div id="circles"></div>
+        <div>
+            <button id="currentTable" onclick="tableUmno()">Таблица умножения</button>
+            <table id="tableOfUmno"></table>
+        </div>
+        <div>
+            <button id="curs" onclick="showCurs()">Курс акций «Магнит»</button>
+            <table border="1" id="TableCurs"></table>
+            <div id="middlenum"></div>
+            <div id="max"></div>
+            <div id="min"></div>
+        </div>
     </main>
 
     <footer>
